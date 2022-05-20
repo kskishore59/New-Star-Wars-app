@@ -72,9 +72,11 @@ const People = (props: Props) => {
 
 	useEffect(() => {
 		getData();
-	}, []);
+	}, [characters]);
 
 	useEffect(() => {
+		if (species.length === 0) {
+		}
 		const speciesInfo = species.filter((value) =>
 			character?.species.includes(value.url),
 		);
