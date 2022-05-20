@@ -85,6 +85,7 @@ const People = (props: Props) => {
 		const starShipsInfo = starShips.filter((value) =>
 			character?.starships.includes(value.url),
 		);
+		console.log(starShipsInfo);
 		setStarShipInfo(starShipsInfo);
 	}, [starShips]);
 
@@ -115,7 +116,7 @@ const People = (props: Props) => {
 				) : (
 					<div>
 						<h1>Starships : </h1>
-						{starShips.map((each) => (
+						{starShipInfo.map((each) => (
 							<StarShipsName details={each} />
 						))}
 					</div>
