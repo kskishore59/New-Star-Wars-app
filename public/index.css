@@ -917,12 +917,12 @@ input:checked + .toggle-bg {
   left: 0px;
 }
 
-.z-10 {
-  z-index: 10;
-}
-
 .z-20 {
   z-index: 20;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .z-40 {
@@ -1230,6 +1230,10 @@ input:checked + .toggle-bg {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-scroll {
+  overflow: scroll;
 }
 
 .overflow-y-auto {

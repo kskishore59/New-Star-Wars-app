@@ -72,7 +72,7 @@ const People = (props: Props) => {
 
 	useEffect(() => {
 		getData();
-	}, [characters]);
+	}, []);
 
 	useEffect(() => {
 		const speciesInfo = species.filter((value) =>
