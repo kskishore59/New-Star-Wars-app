@@ -61,7 +61,7 @@ const SpeciesFullInfo = (props: Props) => {
 		fetchFilmsForSpecies();
 		fetchSpeciesCharacters();
 		fetchNewSpecies();
-	}, []);
+	}, [filmsInfo]);
 
 	console.log(species);
 	console.log(speciesInfo);
