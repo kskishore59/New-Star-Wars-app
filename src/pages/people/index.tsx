@@ -49,13 +49,24 @@ const People = (props: Props) => {
 			return id[id.length - 2];
 		});
 		console.log(speciesArray);
+
+		const starShipsInfo = starShips.filter((value) =>
+			character?.starships.includes(value.url),
+		);
+
+		const speciesInfo = species.filter((value) =>
+			character?.species.includes(value.url),
+		);
+
+		console.log(starShipsInfo);
+
 		//const found = species.some(r=> character?.species.includes(r.url))
 		//const speciesArray1 = species.filter((value) => !character?.species.includes(value.url))
-		if (starShipId) {
+		if (starShipId && starShipsInfo.length === 0) {
 			dispatch(fetchStarShips(starShipId));
 		}
 
-		if (speciesArray) {
+		if (speciesArray && speciesInfo.length === 0) {
 			dispatch(fetchSpecies(speciesArray));
 		}
 	};
@@ -75,8 +86,6 @@ const People = (props: Props) => {
 	}, [characters]);
 
 	useEffect(() => {
-		if (species.length === 0) {
-		}
 		const speciesInfo = species.filter((value) =>
 			character?.species.includes(value.url),
 		);
