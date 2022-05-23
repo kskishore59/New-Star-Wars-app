@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchFilms, fetchStarShips } from "../../store/rootSlice";
-import { AppDispatch, AppThunkDispatch, RootState } from "../../store/store";
+import { AppThunkDispatch, RootState } from "../../store/store";
 import SpeciesMoviesCard from "../species/SpeciesMovies";
 
 type Props = {};
@@ -13,7 +12,6 @@ const StarShipFullInfo = (props: Props) => {
 	const dispatch = useDispatch<AppThunkDispatch>();
 	const starships = useSelector((state: RootState) => state.starShips);
 	const filmsInfo = useSelector((state: RootState) => state.films);
-	const peopleInfo = useSelector((state: RootState) => state.characters);
 
 	const starShipInfo = starships?.find(
 		(each) => each.url === `https://swapi.dev/api/starships/${params.id}/`,
@@ -41,8 +39,8 @@ const StarShipFullInfo = (props: Props) => {
 	}, []);
 
 	return (
-		<div className="rounded w-full overflow-hidden transition-all shadow-lg cursor-pointer  translate-x-px flex flex-col align-items-center p-5">
-			STARSHIP : {starShipInfo?.name}
+		<div className="rounded w-full overflow-hidden transition-all shadow-lg cursor-pointer  translate-x-px flex flex-col align-items-start p-5">
+			STARSHIP : <span className="font-bold text-xl">{starShipInfo?.name}</span>
 			<div className="flex-col align-items-start w-102">
 				<h1>MLGT : {starShipInfo?.MGLT}</h1>
 				<h1>Passengers : {starShipInfo?.passengers}</h1>

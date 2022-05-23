@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
-import { MovieResponse } from "../../../pages/movies/Movies";
-import { Character } from "../../../store/rootSlice";
+import { MovieResponse } from "../../../pages/movies";
+import { Character } from "../../../store/types";
 import { axiosInstance } from "../client";
 
 // eslint-disable-next-line import/no-anonymous-default-export

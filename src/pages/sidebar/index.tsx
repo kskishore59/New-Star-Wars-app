@@ -18,7 +18,7 @@ const SideBar = (props: Props) => {
 				<ul className="space-y-2">
 					<div className="w-full px-4 ">
 						<div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
-							{films ? (
+							{films.length > 0 ? (
 								<Disclosure>
 									{({ open }) => (
 										<>

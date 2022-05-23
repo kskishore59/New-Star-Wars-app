@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import Movies from "./pages/movies/Movies";
+import Movies from "./pages/movies";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Characters from "./pages/characters/characters";
+import Characters from "./pages/characters";
 import People from "./pages/people";
-import SpeciesFullInfo from "./pages/species/SpeciesFullInfo";
-import StarShipFullInfo from "./pages/starShips/StarShipFullInfo";
+import SpeciesFullInfo from "./pages/species";
+import StarShipFullInfo from "./pages/starShips";
 import Navbar from "./pages/Navbar";
 import SideBar from "./pages/sidebar";
 

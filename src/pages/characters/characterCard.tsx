@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Character } from "../../store/rootSlice";
+import { Character } from "../../store/types";
 
 const CharacterCard: React.FC<{ details: Character }> = ({ details }) => {
 	const { name, url } = details;

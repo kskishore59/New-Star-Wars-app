@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchFilms, Film } from "../../store/rootSlice";
+import { fetchFilms } from "../../store/rootSlice";
 
 import { useSelector } from "react-redux";
 import { AppThunkDispatch, RootState } from "../../store/store";
 import MoviesCard from "./MoviesCard";
+import { Film } from "../../store/types";
 
 export interface MovieResponse {
 	count: string;

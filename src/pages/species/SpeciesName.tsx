@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Species } from "../../store/rootSlice";
+import { Species } from "../../store/types";
 
 const SpeciesName: React.FC<{ details: Species }> = ({ details }) => {
 	const { url, name } = details;

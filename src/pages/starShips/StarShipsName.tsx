@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { StarShip } from "../../store/rootSlice";
+import { StarShip } from "../../store/types";
 
 const StarShipsName: React.FC<{ details: StarShip }> = ({ details }) => {
 	const { url, name } = details;

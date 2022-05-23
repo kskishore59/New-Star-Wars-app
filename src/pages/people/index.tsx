@@ -1,38 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
-	Character,
+	fetchCharacters,
 	fetchSpecies,
 	fetchStarShips,
-	Species,
-	StarShip,
 } from "../../store/rootSlice";
 import { AppThunkDispatch, RootState } from "../../store/store";
+import { Character } from "../../store/types";
 import SpeciesName from "../species/SpeciesName";
 import StarShipsName from "../starShips/StarShipsName";
-import { fetchCharacters } from "../../store/rootSlice";
 
 type Props = {};
 
 const People = (props: Props) => {
 	let params = useParams();
-	const [speciesInfo, setSpeciesInfo] = useState<Species[]>([]);
-	const [starShipInfo, setStarShipInfo] = useState<StarShip[]>([]);
 	const dispatch = useDispatch<AppThunkDispatch>();
 	const characters = useSelector((state: RootState) => state.characters);
 	const starShips = useSelector((state: RootState) => state.starShips);
 	const species = useSelector((state: RootState) => state.species);
-	const loadPeople = useSelector((state: RootState) => state.loadPeople);
 	const loadingSpecies = useSelector((state: RootState) => state.loadSpecies);
 	const loadingStarShips = useSelector(
 		(state: RootState) => state.loadStarShips,
 	);
-	// const selectStarShips = createSelector(
-	//   (state: RootState) => state.characters,
-	//   (state:RootState) =>  (state.starShips),
-	//   (characters) => characters.starships.filter((ship) => ship.url)
-	// )
 
 	const character = characters.find((person: Character) => {
 		return person.url === `https://swapi.dev/api/people/${params.id}/`;
@@ -59,9 +49,6 @@ const People = (props: Props) => {
 		);
 
 		console.log(starShipsInfo);
-
-		//const found = species.some(r=> character?.species.includes(r.url))
-		//const speciesArray1 = species.filter((value) => !character?.species.includes(value.url))
 		if (starShipId && starShipsInfo.length === 0) {
 			dispatch(fetchStarShips(starShipId));
 		}
@@ -72,35 +59,18 @@ const People = (props: Props) => {
 	};
 
 	useEffect(() => {
-		const fetchPerson = () => {
-			if (character === undefined) {
-				const characterArray = [`${params.id}`];
-				dispatch(fetchCharacters(characterArray));
-			}
-		};
-		fetchPerson();
-	}, [characters]);
+		if (character === undefined) {
+			const characterArray = [`${params.id}`];
+			dispatch(fetchCharacters(characterArray));
+		} else {
+			getData();
+		}
+	}, [character]);
 
-	useEffect(() => {
-		getData();
-	}, [characters]);
-
-	useEffect(() => {
+	const renderSpecies = () => {
 		const speciesInfo = species.filter((value) =>
 			character?.species.includes(value.url),
 		);
-		setSpeciesInfo(speciesInfo);
-	}, [species]);
-
-	useEffect(() => {
-		const starShipsInfo = starShips.filter((value) =>
-			character?.starships.includes(value.url),
-		);
-		console.log(starShipsInfo);
-		setStarShipInfo(starShipsInfo);
-	}, [starShips]);
-
-	const renderSpecies = () => {
 		return (
 			<>
 				{speciesInfo.length === 0 ? (
@@ -120,14 +90,17 @@ const People = (props: Props) => {
 	};
 
 	const renderStarShips = () => {
+		const starShipsInfo = starShips.filter((value) =>
+			character?.starships.includes(value.url),
+		);
 		return (
 			<>
-				{starShipInfo.length === 0 ? (
+				{starShipsInfo.length === 0 ? (
 					""
 				) : (
 					<div>
 						<h1>Starships : </h1>
-						{starShipInfo.map((each) => (
+						{starShipsInfo.map((each) => (
 							<StarShipsName details={each} />
 						))}
 					</div>
