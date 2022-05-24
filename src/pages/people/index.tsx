@@ -113,39 +113,41 @@ const People = (props: Props) => {
 		<>
 			<div className="Card rounded w-full overflow-hidden transition-all cursor-pointer  translate-x-px flex flex-col align-items-center justify-items-start p-5">
 				<h1 className="font-bold text-2xl">{character?.name}</h1>
-				<h1>Birth Year : {character?.birth_year}</h1>
-				<h1>Gender : {character?.gender}</h1>
-				<h1>Hair Color : {character?.hari_color}</h1>
-				<h1>Eye Color : {character?.eye_color}</h1>
-				<h1>Height : {character?.height}</h1>
-				<h1>Created : {character?.created}</h1>
-				<h1>Mass : {character?.mass}</h1>
-				<div></div>
-				<div>
-					{loadingStarShips ? (
-						<div className="flex h-9 items-center justify-center">
-							<div
-								className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
-								role="status"
-							>
-								<span className="visually-hidden"></span>
+				<div className="text-left ml-20 mt-10">
+					<h1 className="text-lg">Birth Year : {character?.birth_year}</h1>
+					<h1 className="text-lg">Gender : {character?.gender}</h1>
+					<h1 className="text-lg">Hair Color : {character?.hari_color}</h1>
+					<h1 className="text-lg">Eye Color : {character?.eye_color}</h1>
+					<h1 className="text-lg">Height : {character?.height}</h1>
+					<h1 className="text-lg">Created : {character?.created}</h1>
+					<h1 className="text-lg">Mass : {character?.mass}</h1>
+					<div></div>
+					<div>
+						{loadingStarShips ? (
+							<div className="flex h-9 items-center justify-center">
+								<div
+									className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+									role="status"
+								>
+									<span className="visually-hidden"></span>
+								</div>
 							</div>
-						</div>
-					) : (
-						renderStarShips()
-					)}
-					{loadingSpecies ? (
-						<div className="flex h-full items-center justify-center">
-							<div
-								className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
-								role="status"
-							>
-								<span className="visually-hidden"></span>
+						) : (
+							renderStarShips()
+						)}
+						{loadingSpecies ? (
+							<div className="flex h-full items-center justify-center">
+								<div
+									className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+									role="status"
+								>
+									<span className="visually-hidden"></span>
+								</div>
 							</div>
-						</div>
-					) : (
-						renderSpecies()
-					)}
+						) : (
+							renderSpecies()
+						)}
+					</div>
 				</div>
 			</div>
 		</>

@@ -39,19 +39,26 @@ const StarShipFullInfo = (props: Props) => {
 	}, []);
 
 	return (
-		<div className="rounded w-full overflow-hidden transition-all shadow-lg cursor-pointer  translate-x-px flex flex-col align-items-start p-5">
-			STARSHIP : <span className="font-bold text-xl">{starShipInfo?.name}</span>
-			<div className="flex-col align-items-start w-102">
-				<h1>MLGT : {starShipInfo?.MGLT}</h1>
-				<h1>Passengers : {starShipInfo?.passengers}</h1>
-				<h1>Model : {starShipInfo?.model}</h1>
-				<h1>Consumables : {starShipInfo?.consumables}</h1>
-				<h1>Cargo Capacity : {starShipInfo?.cargo_capacity}</h1>
-				<h1>Edited : {starShipInfo?.edited}</h1>
-				<h1>Manufacturer : {starShipInfo?.manufacturer}</h1>
-				<h1>Length : {starShipInfo?.length}</h1>
-				<h1>Starship Class : {starShipInfo?.starship_class}</h1>
-				<h1>
+		<div className="rounded w-full overflow-hidden transition-all shadow-lg  translate-x-px flex flex-col align-items-center p-5">
+			<div>
+				STARSHIP :{" "}
+				<span className="font-bold text-xl">{starShipInfo?.name}</span>
+			</div>
+			<div className="flex-col justify-around text-left w-full h-full ml-20 mt-10">
+				<h1 className="pt-2 ">MLGT : {starShipInfo?.MGLT}</h1>
+				<h1 className="pt-2 ">Passengers : {starShipInfo?.passengers}</h1>
+				<h1 className="pt-2 ">Model : {starShipInfo?.model}</h1>
+				<h1 className="pt-2 ">Consumables : {starShipInfo?.consumables}</h1>
+				<h1 className="pt-2 ">
+					Cargo Capacity : {starShipInfo?.cargo_capacity}
+				</h1>
+				<h1 className="pt-2 ">Edited : {starShipInfo?.edited}</h1>
+				<h1 className="pt-2 ">Manufacturer : {starShipInfo?.manufacturer}</h1>
+				<h1 className="pt-2 ">Length : {starShipInfo?.length}</h1>
+				<h1 className="pt-2 ">
+					Starship Class : {starShipInfo?.starship_class}
+				</h1>
+				<h1 className="pt-2 ">
 					Films :
 					{starShipFilms.map((each) => (
 						<SpeciesMoviesCard key={each.url} details={each} />
